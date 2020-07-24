@@ -6,7 +6,7 @@
                 <b class="col-md-12 element-name" [style.color]="chartInfo.element1.color" >{{ chartInfo.element1.name}}</b>
             </div>
             <div class="row">
-                <span class="col-md-4">{{getPercentage()}}</span>
+                <span class="col-md-4">{{getPercentage(chartInfo.element1.ammount)}}</span>
                 <span class="col-md-8 ammount" *ngIf='!chartInfo.euroCurrency'>{{chartInfo.element1.ammount.toString() | point}}</span>
                 <span class="col-md-8 ammount" *ngIf='chartInfo.euroCurrency'>{{chartInfo.element1.ammount.toString() | point: ' €'}}</span>
             </div>
@@ -16,7 +16,7 @@
                 <b class="col-md-12 element-name right" [style.color]="chartInfo.element2.color" >{{ chartInfo.element2.name}}</b>
             </div>
             <div class="row">
-                <span class="col-md-4">{{getPercentage(false)}}</span>
+                <span class="col-md-4">{{getPercentage(chartInfo.element2.ammount)}}</span>
                 <span class="col-md-8 ammount" *ngIf='!chartInfo.euroCurrency'>{{chartInfo.element2.ammount.toString() | point}}</span>
                 <span class="col-md-8 ammount" *ngIf='chartInfo.euroCurrency'>{{chartInfo.element2.ammount.toString() | point: ' €'}}</span>
             </div>

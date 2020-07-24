@@ -65,12 +65,10 @@ export class DoughnutChartComponent implements AfterViewInit {
       .attr('fill', (d, i) => this.color(i));
   }
 
-  getPercentage(firstElement = true): string {
-    if (firstElement) {
-      return `${(this.chartInfo.element1.ammount * 100) / this.total}%`;
-    }
-    return `${(this.chartInfo.element2.ammount * 100) / this.total}%`;
+  getPercentage(ammount: number): string {
+    return `${(ammount * 100) / this.total}%`;
   }
+  
   private drawCenter() {
     this.svg.append('text')
       .text(this.chartInfo.title)
