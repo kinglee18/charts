@@ -83,7 +83,7 @@ export class DoughnutChartComponent implements AfterViewInit {
       .style('text-anchor', 'middle');
     let text;
     if (this.chartInfo.euroCurrency) {
-      text = this.pipe.transform(this.total.toString(), '€');
+      text = this.pipe.transform(this.total.toString(), ' €');
     } else {
       text = this.pipe.transform(this.total.toString());
     }
@@ -93,6 +93,7 @@ export class DoughnutChartComponent implements AfterViewInit {
       .attr('x', this.radius)
       .attr('y', this.radius + 12)
       .style('font-size', '18px')
+      .style('font-weight', 'bold')
       .style('text-anchor', 'middle');
   }
 }
