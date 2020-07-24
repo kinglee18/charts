@@ -13,9 +13,8 @@ export class DoughnutChartComponent implements AfterViewInit {
   private chartContainer: ElementRef;
   @Input() chartInfo: DoughnutChart;
 
-  constructor(private pipe: PointPipe) {
+  constructor(private pipe: PointPipe) { }
 
-  }
   radius: number;
   private arc: any; private pie: any; private slices: any;
   private color: any;
@@ -82,12 +81,17 @@ export class DoughnutChartComponent implements AfterViewInit {
       .style('fill', '#bababa')
       .style('font-weight', 'bold')
       .style('text-anchor', 'middle');
-
+    let text;
+    if (this.chartInfo.euroCurrency) {
+      text = this.pipe.transform(this.total.toString(), '€');
+    } else {
+      text = this.pipe.transform(this.total.toString());
+    }
     this.svg.append('text')
-      .text(this.pipe.transform(this.total.toString()) )
+      .text(text)
       .attr('id', 'total')
       .attr('x', this.radius)
-      .attr('y', this.radius + 12 )
+      .attr('y', this.radius + 12)
       .style('font-size', '18px')
       .style('text-anchor', 'middle');
   }
